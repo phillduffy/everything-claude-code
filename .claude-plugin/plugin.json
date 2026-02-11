@@ -27,6 +27,8 @@
     "./agents/architect.md",
     "./agents/build-error-resolver.md",
     "./agents/code-reviewer.md",
+    "./agents/csharp-build-resolver.md",
+    "./agents/csharp-reviewer.md",
     "./agents/database-reviewer.md",
     "./agents/doc-updater.md",
     "./agents/e2e-runner.md",
