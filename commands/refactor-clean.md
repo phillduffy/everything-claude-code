@@ -6,14 +6,17 @@ Safely identify and remove dead code with test verification at every step.
 
 Run analysis tools based on project type:
 
-| Tool | What It Finds | Command |
-|------|--------------|---------|
-| knip | Unused exports, files, dependencies | `npx knip` |
-| depcheck | Unused npm dependencies | `npx depcheck` |
-| ts-prune | Unused TypeScript exports | `npx ts-prune` |
-| vulture | Unused Python code | `vulture src/` |
-| deadcode | Unused Go code | `deadcode ./...` |
-| cargo-udeps | Unused Rust dependencies | `cargo +nightly udeps` |
+| Language | Tool | What It Finds | Command |
+|----------|------|--------------|---------|
+| C# | Roslyn | Unused private members, usings, variables | `dotnet build -warnaserror` |
+| C# | Grep | Commented-out code, `[Obsolete]`, `#if false` | `rg '^\s*//' --glob '*.cs' -c` |
+| C# | csharp-smells | Dispensable smells: Dead Code, Duplicate Code, Lazy Class, Speculative Generality | See `csharp-smells` skill |
+| JS/TS | knip | Unused exports, files, dependencies | `npx knip` |
+| JS/TS | depcheck | Unused npm dependencies | `npx depcheck` |
+| JS/TS | ts-prune | Unused TypeScript exports | `npx ts-prune` |
+| Python | vulture | Unused Python code | `vulture src/` |
+| Go | deadcode | Unused Go code | `deadcode ./...` |
+| Rust | cargo-udeps | Unused Rust dependencies | `cargo +nightly udeps` |
 
 If no tool is available, use Grep to find exports with zero imports:
 ```
@@ -26,9 +29,9 @@ Sort findings into safety tiers:
 
 | Tier | Examples | Action |
 |------|----------|--------|
-| **SAFE** | Unused utilities, test helpers, internal functions | Delete with confidence |
-| **CAUTION** | Components, API routes, middleware | Verify no dynamic imports or external consumers |
-| **DANGER** | Config files, entry points, type definitions | Investigate before touching |
+| **SAFE** | Unused utilities, test helpers, internal functions, unused private members (IDE0051), commented-out code | Delete with confidence |
+| **CAUTION** | Components, API routes, `[Obsolete]` members, single-implementation interfaces, Lazy Classes | Verify no dynamic usage or external consumers |
+| **DANGER** | Config files, entry points, public API, extension methods, virtual members | Investigate before touching |
 
 ## Step 3: Safe Deletion Loop
 
@@ -43,10 +46,9 @@ For each SAFE item:
 ## Step 4: Handle CAUTION Items
 
 Before deleting CAUTION items:
-- Search for dynamic imports: `import()`, `require()`, `__import__`
-- Search for string references: route names, component names in configs
-- Check if exported from a public package API
-- Verify no external consumers (check dependents if published)
+- **JS/TS**: Search for dynamic imports (`import()`, `require()`), string references in configs
+- **C#**: Check `[InternalsVisibleTo]`, reflection usage, test mocks (NSubstitute)
+- **All**: Check if exported from a public package API, verify no external consumers
 
 ## Step 5: Consolidate Duplicates
 
@@ -69,7 +71,7 @@ Deleted:   12 unused functions
 Skipped:   2 items (tests failed)
 Saved:     ~450 lines removed
 ──────────────────────────────
-All tests passing ✅
+All tests passing
 ```
 
 ## Rules
