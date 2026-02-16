@@ -51,6 +51,17 @@
           }
         ],
         "description": "Suggest manual compaction at logical intervals"
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e \"let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{try{const i=JSON.parse(d);const p=i.tool_input?.file_path||'';if(/\\.(snk|pfx|p12|key|pem)$/.test(p)){console.error('[Hook] BLOCKED: Signing/certificate file — edit manually');process.exit(2)}if(/Directory\\.Packages\\.props$/.test(p)){console.error('[Hook] BLOCKED: Central package management file — coordinate with team');process.exit(2)}if(/nuget\\.config$/i.test(p)){console.error('[Hook] BLOCKED: NuGet feed config — edit manually');process.exit(2)}if(/\\.env(\\..*)?$/.test(p)&&!/\\.env\\.example$/.test(p)){console.error('[Hook] BLOCKED: Environment secrets file — edit manually');process.exit(2)}}catch{}console.log(d)})\"",
+            "timeout": 5
+          }
+        ],
+        "description": "Block edits to sensitive files (signing keys, package config, secrets)"
       }
     ],
     "PreCompact": [
@@ -109,6 +120,16 @@
           }
         ],
         "description": "Auto-format JS/TS files with Prettier after edits"
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/post-edit-csharp-format.js\""
+          }
+        ],
+        "description": "Auto-format C# files with dotnet format after edits"
       },
       {
         "matcher": "Edit",

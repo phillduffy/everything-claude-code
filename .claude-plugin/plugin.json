@@ -38,6 +38,8 @@
     "./agents/python-reviewer.md",
     "./agents/refactor-cleaner.md",
     "./agents/security-reviewer.md",
-    "./agents/tdd-guide.md"
+    "./agents/tdd-guide.md",
+    "./agents/vsto-reviewer.md",
+    "./agents/architecture-enforcer.md"
   ]
 }
