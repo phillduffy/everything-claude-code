@@ -1,5 +1,5 @@
 ---
-description: Comprehensive C# code review for functional patterns, immutability, Result/Maybe usage, and security. Invokes the csharp-reviewer agent.
+description: Comprehensive C# code review for functional patterns, immutability, Result/Maybe usage, security, and code smell detection. Invokes the csharp-reviewer agent.
 ---
 
 # C# Code Review
@@ -13,7 +13,8 @@ This command invokes the **csharp-reviewer** agent for comprehensive C#-specific
 3. **Security Scan**: Check for SQL injection, deserialization attacks, command injection
 4. **Result/Maybe Review**: Verify proper use of `Result<TValue, Error>` and `Maybe<T>`
 5. **Immutability Check**: Ensure records, init, and IReadOnlyList patterns
-6. **Generate Report**: Categorize issues by severity
+6. **Code Smell Detection**: Scan for all 23 refactoring.guru smells with C#-specific heuristics
+7. **Generate Report**: Categorize issues by severity
 
 ## When to Use
 
@@ -33,14 +34,15 @@ Use `/csharp-review` when:
 - Missing Result returns on methods that can fail
 - Mutable properties where init should be used
 - Hardcoded secrets
+- **Smells**: Primitive Obsession, Feature Envy, Shotgun Surgery, Duplicate Code, Divergent Change
 
 ### HIGH (Should Fix)
-- Primitive obsession (string instead of ValueObject)
 - Nullable reference warnings ignored
 - Service locator pattern instead of constructor injection
 - Tell Don't Ask violations
 - CQS violations (commands returning values)
-- Large functions >50 lines, deep nesting >4
+- Deep nesting >4
+- **Smells**: Long Method (>25 lines), Large Class (>250 lines), Long Parameter List (>4), Data Clumps, Switch Statements (duplicated), Data Class (anemic entity), Dead Code
 
 ### MEDIUM (Consider)
 - Multiple LINQ enumerations
@@ -48,6 +50,7 @@ Use `/csharp-review` when:
 - Missing CancellationToken propagation
 - Sync over async (.Result, .Wait())
 - N+1 database queries
+- **Smells**: Comments, Lazy Class, Middle Man, Speculative Generality, Temporary Field, Message Chains, Refused Bequest, Inappropriate Intimacy
 
 ## Automated Checks Run
 
@@ -136,4 +139,4 @@ Recommendation: Block merge until CRITICAL issue is fixed
 ## Related
 
 - Agent: `agents/csharp-reviewer.md`
-- Skills: `skills/csharp-patterns/`, `skills/csharp-testing/`
+- Skills: `skills/csharp-patterns/`, `skills/csharp-testing/`, `skills/csharp-smells/`
