@@ -40,6 +40,7 @@
     "./agents/security-reviewer.md",
     "./agents/tdd-guide.md",
     "./agents/vsto-reviewer.md",
+    "./agents/vsto-architecture-enforcer.md",
     "./agents/architecture-enforcer.md"
   ]
 }

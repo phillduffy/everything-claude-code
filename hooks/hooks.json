@@ -43,6 +43,16 @@
         "description": "Block creation of random .md files - keeps docs consolidated"
       },
       {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/pre-write-feature-guard.js\""
+          }
+        ],
+        "description": "Warn if .feature file naming doesn't match handler convention"
+      },
+      {
         "matcher": "Edit|Write",
         "hooks": [
           {
