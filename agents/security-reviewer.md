@@ -1,8 +1,19 @@
 ---
 name: security-reviewer
-description: Security vulnerability detection and remediation specialist. Use PROACTIVELY after writing code that handles user input, authentication, API endpoints, or sensitive data. Flags secrets, SSRF, injection, unsafe crypto, and OWASP Top 10 vulnerabilities.
-tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+description: |
+  Security vulnerability detection and remediation specialist. Use PROACTIVELY after writing code that handles user input, authentication, API endpoints, or sensitive data. Flags secrets, SSRF, injection, unsafe crypto, and OWASP Top 10 vulnerabilities.
+
+  <example>
+  Context: User adds authentication or handles user input
+  User: "Check this for security vulnerabilities"
+  </example>
+  <example>
+  Context: New API endpoint handles sensitive data
+  User: "Run a security review on this endpoint"
+  </example>
+tools: ["Read", "Bash", "Grep", "Glob"]
 model: sonnet
+color: cyan
 ---
 
 # Security Reviewer

@@ -12,7 +12,7 @@ To detect and resolve code smells in C# codebases, apply the refactoring.guru ca
 | Severity | Smells | Action |
 |----------|--------|--------|
 | **CRITICAL** | Primitive Obsession, Feature Envy, Shotgun Surgery, Duplicate Code, Divergent Change | Block merge |
-| **HIGH** | Long Method, Large Class, Long Parameter List, Data Clumps, Switch Statements, Data Class, Dead Code | Block merge |
+| **HIGH** | Long Method, Large Class, Long Parameter List, Data Clumps, Switch Statements, Data Class, Dead Code, Interface Bloat (ISP), Partial Functions | Block merge |
 | **MEDIUM** | Comments, Lazy Class, Middle Man, Speculative Generality, Temporary Field, Message Chains, Refused Bequest, Inappropriate Intimacy, Alternative Classes, Parallel Inheritance, Incomplete Library Class | Warn, merge with caution |
 
 ## Pragmatic Thresholds
@@ -93,6 +93,7 @@ return status switch
 };
 
 // Smell: Same switch duplicated in multiple methods → use polymorphism
+// Also flag: same switch/if-else on same discriminator in 2+ files — systematic violation requiring strategy pattern
 ```
 
 ### Data Class
@@ -103,6 +104,15 @@ return status switch
 **Detect**: Unused methods, unreachable branches, commented-out code, unused parameters.
 **Fix**: Delete it. Version control is the backup.
 
+### Interface Bloat (ISP Violation)
+**Detect**: Interfaces with 6+ method signatures. Implementations throwing `NotImplementedException` or `NotSupportedException`.
+**Fix**: Split into role-specific interfaces (Reader/Writer/Finder). A class can implement multiple narrow interfaces.
+- Exception: `IRepository<T>` with 5 CRUD methods is acceptable if all implementations use all methods.
+
+### Partial Functions
+**Detect**: `int.Parse()`, `Convert.ToInt32()`, `Enum.Parse()`, `decimal.Parse()`, `.First()` without guard, division without zero-check.
+**Fix**: Use `TryParse` wrapped in `Maybe<T>`, `.FirstOrDefault()` + Maybe, guard divisor before division.
+
 ## MEDIUM Smells — Quick Reference
 
 | Smell | Detect | Fix |
@@ -110,14 +120,21 @@ return status switch
 | **Comments** | Comments explaining *what* code does | Rename, extract method to make intent obvious |
 | **Lazy Class** | Class with <3 methods and 1 field | Inline into caller or merge with related class |
 | **Middle Man** | Class delegating >50% of methods | Remove wrapper, inject dependency directly |
-| **Speculative Generality** | Abstract class with 1 implementation, unused params | Remove abstraction until 2+ implementations exist |
+| **Speculative Generality** | Abstract class with 1 implementation, unused params. Also: interfaces with exactly 1 implementation not needed for DI/testability, empty abstract classes, generic type parameters used by 0 callers. | Remove abstraction until 2+ implementations exist |
 | **Temporary Field** | Field only set in certain code paths | Extract into separate class or use `Maybe<T>` |
 | **Message Chains** | `a.GetB().GetC().GetD()` chains | Introduce facade method, apply Law of Demeter |
-| **Refused Bequest** | Subclass overriding to throw or no-op | Replace inheritance with composition |
+| **Refused Bequest** | Subclass overriding to throw or no-op. Also: `NotSupportedException` in interface implementations — Liskov Substitution violation. If implementation can't support an operation, the interface is too broad (apply ISP first). | Replace inheritance with composition |
 | **Inappropriate Intimacy** | Class accessing private/internal members of another | Extract interface, reduce to public contract |
 | **Alternative Classes** | Two classes doing same thing differently | Unify behind common interface |
 | **Parallel Inheritance** | Adding subclass forces parallel subclass elsewhere | Merge hierarchies, use composition |
 | **Incomplete Library Class** | Library missing needed method | Extension methods, adapter pattern |
+
+## Sealed by Default
+
+All public classes should be `sealed` unless explicitly designed for inheritance:
+- `sealed` enables compiler/JIT optimizations and prevents unintended extension
+- Analyzer CA1852 can enforce this — classes that are never inherited should be sealed
+- Exceptions: base classes with documented extension points, abstract classes
 
 ## Pragmatic Exceptions
 
@@ -145,7 +162,7 @@ Fix: Replace string with Email ValueObject using Create() factory
 ### Reference Files
 
 For the complete smell catalog with detailed detection patterns, C# examples, and refactoring steps:
-- **`references/smell-catalog.md`** — Full 23-smell reference with before/after C# code for each smell
+- **`references/smell-catalog.md`** — Full 25-smell reference with before/after C# code for each smell
 
 ### Related Skills
 

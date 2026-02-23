@@ -1,3 +1,12 @@
+---
+description: Run evaluation harness on current session
+allowed-tools:
+  - Read
+  - Bash
+  - Grep
+  - Glob
+---
+
 # Eval Command
 
 Manage eval-driven development workflow.

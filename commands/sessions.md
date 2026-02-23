@@ -1,3 +1,10 @@
+---
+description: Manage and review Claude Code sessions
+allowed-tools:
+  - Bash
+  - Read
+---
+
 # Sessions Command
 
 Manage Claude Code session history - list, load, alias, and edit sessions stored in `~/.claude/sessions/`.

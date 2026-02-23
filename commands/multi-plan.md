@@ -1,3 +1,13 @@
+---
+description: Multi-agent planning orchestrator
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - Task
+---
+
 # Plan - Multi-Model Collaborative Planning
 
 Multi-model collaborative planning - Context retrieval + Dual-model analysis → Generate step-by-step implementation plan.

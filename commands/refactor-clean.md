@@ -1,3 +1,15 @@
+---
+description: Clean up dead code and consolidate duplicates
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+  - Grep
+  - Glob
+  - Task
+---
+
 # Refactor Clean
 
 Safely identify and remove dead code with test verification at every step.

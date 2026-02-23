@@ -1,3 +1,14 @@
+---
+description: Analyze and improve test coverage
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+  - Grep
+  - Glob
+---
+
 # Test Coverage
 
 Analyze test coverage, identify gaps, and generate missing tests to reach 80%+ coverage.

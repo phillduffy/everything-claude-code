@@ -20,6 +20,10 @@ const {
 } = require('../lib/utils');
 
 async function main() {
+  // Drain stdin to prevent EPIPE
+  process.stdin.resume();
+  process.stdin.on('data', () => {});
+
   const sessionsDir = getSessionsDir();
   const compactionLog = path.join(sessionsDir, 'compaction-log.txt');
 

@@ -1,3 +1,15 @@
+---
+description: Orchestrate complex multi-agent workflows
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+  - Grep
+  - Glob
+  - Task
+---
+
 # Orchestrate Command
 
 Sequential agent workflow for complex tasks.

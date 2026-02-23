@@ -22,6 +22,10 @@ const {
 } = require('../lib/utils');
 
 async function main() {
+  // Drain stdin to prevent EPIPE
+  process.stdin.resume();
+  process.stdin.on('data', () => {});
+
   // Track tool call count (increment in a temp file)
   // Use a session-specific counter file based on session ID from environment
   // or parent PID as fallback

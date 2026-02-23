@@ -294,21 +294,31 @@ public class OrderService
 
 ### 9. Options Pattern for Configuration
 
+Use strongly-typed settings classes instead of `IConfiguration["key"]` magic strings.
+
 ```csharp
-public class SmtpOptions
+// Anti-pattern: Magic string configuration scattered in services
+var url = _config["DmsSettings:BaseUrl"];                    // BAD: Magic string
+var timeout = int.Parse(_config["DmsSettings:TimeoutSeconds"]); // BAD: Magic string + partial function
+
+// Good: Strongly-typed options class
+public sealed class SmtpOptions
 {
     public const string SectionName = "Smtp";
 
-    public string Host { get; init; } = "";
-    public int Port { get; init; } = 587;
-    public string Username { get; init; } = "";
+    public required string Host { get; init; }
+    public required int Port { get; init; }
+    public required string Username { get; init; }
 }
 
-// Registration
-services.Configure<SmtpOptions>(configuration.GetSection(SmtpOptions.SectionName));
+// Registration — full validation chain required
+services.AddOptions<SmtpOptions>()
+    .BindConfiguration(SmtpOptions.SectionName)
+    .ValidateDataAnnotations()
+    .ValidateOnStart();  // Fail fast at startup, not at first use
 
 // Usage via injection
-public class EmailSender
+public sealed class EmailSender
 {
     private readonly SmtpOptions _options;
 
@@ -316,6 +326,15 @@ public class EmailSender
         _options = options.Value;
 }
 ```
+
+**Required chain**: `.BindConfiguration()` + `.ValidateDataAnnotations()` + `.ValidateOnStart()`
+
+**Settings class conventions**:
+- `sealed` class (not inheritable)
+- `const string SectionName` matching appsettings.json key
+- `required` keyword on all properties
+- `init`-only setters
+- Never inject `IConfiguration` directly into services/handlers
 
 ### 10. Tell Don't Ask
 

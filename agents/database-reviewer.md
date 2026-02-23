@@ -1,8 +1,19 @@
 ---
 name: database-reviewer
-description: PostgreSQL database specialist for query optimization, schema design, security, and performance. Use PROACTIVELY when writing SQL, creating migrations, designing schemas, or troubleshooting database performance. Incorporates Supabase best practices.
-tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+description: |
+  PostgreSQL database specialist for query optimization, schema design, security, and performance. Use PROACTIVELY when writing SQL, creating migrations, designing schemas, or troubleshooting database performance. Incorporates Supabase best practices.
+
+  <example>
+  Context: User writes SQL queries or migrations
+  User: "Review my database schema"
+  </example>
+  <example>
+  Context: Performance issues with database queries
+  User: "Optimize these queries"
+  </example>
+tools: ["Read", "Bash", "Grep", "Glob"]
 model: sonnet
+color: cyan
 ---
 
 # Database Reviewer

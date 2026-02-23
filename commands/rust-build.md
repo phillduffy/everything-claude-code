@@ -1,5 +1,12 @@
 ---
 description: Fix Rust build errors, clippy warnings, and borrow checker issues incrementally. Invokes the rust-build-resolver agent for minimal, surgical fixes.
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+  - Grep
+  - Glob
 ---
 
 # Rust Build and Fix

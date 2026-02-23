@@ -65,7 +65,7 @@ mkdir -p $TARGET/skills $TARGET/rules
 
 ### 2a: Choose Skill Categories
 
-There are 27 skills organized into 4 categories. Use `AskUserQuestion` with `multiSelect: true`:
+There are 47 skills organized into 4 categories. Use `AskUserQuestion` with `multiSelect: true`:
 
 ```
 Question: "Which skill categories do you want to install?"

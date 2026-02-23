@@ -124,9 +124,9 @@ git clone https://github.com/affaan-m/everything-claude-code.git
 cd everything-claude-code
 
 # Recommended: use the installer (handles common + language rules safely)
-./install.sh typescript    # or python or golang
+./install.sh typescript    # or python, golang, rust, csharp
 # You can pass multiple languages:
-# ./install.sh typescript python golang
+# ./install.sh typescript python golang rust csharp
 # or target cursor:
 # ./install.sh --target cursor typescript
 ```
@@ -143,7 +143,7 @@ For manual install instructions see the README in the `rules/` folder.
 /plugin list everything-claude-code@everything-claude-code
 ```
 
-✨ **That's it!** You now have access to 13 agents, 37 skills, and 31 commands.
+✨ **That's it!** You now have access to 21 agents, 47 skills, and 42 commands.
 
 ---
 
@@ -206,6 +206,13 @@ everything-claude-code/
 |   |-- go-build-resolver.md # Go build error resolution
 |   |-- python-reviewer.md   # Python code review (NEW)
 |   |-- database-reviewer.md # Database/Supabase review (NEW)
+|   |-- csharp-reviewer.md   # C# functional patterns review (NEW)
+|   |-- csharp-build-resolver.md  # C# build error resolution (NEW)
+|   |-- csharp-architecture-enforcer.md  # C# Clean Architecture enforcement (NEW)
+|   |-- rust-reviewer.md     # Rust ownership/lifetimes review (NEW)
+|   |-- rust-build-resolver.md  # Rust build error resolution (NEW)
+|   |-- vsto-reviewer.md     # VSTO COM safety review (NEW)
+|   |-- vsto-architecture-enforcer.md  # VSTO lifecycle boundaries (NEW)
 |
 |-- skills/           # Workflow definitions and domain knowledge
 |   |-- coding-standards/           # Language best practices
@@ -245,6 +252,14 @@ everything-claude-code/
 |   |-- deployment-patterns/         # CI/CD, Docker, health checks, rollbacks (NEW)
 |   |-- docker-patterns/            # Docker Compose, networking, volumes, container security (NEW)
 |   |-- e2e-testing/                 # Playwright E2E patterns and Page Object Model (NEW)
+|   |-- csharp-patterns/             # C# functional patterns, Result/Maybe types (NEW)
+|   |-- csharp-smells/               # C# code smells and anti-patterns (NEW)
+|   |-- csharp-testing/              # C# testing patterns, xUnit, FluentAssertions (NEW)
+|   |-- vsto-smells/                 # VSTO code smells, COM interop anti-patterns (NEW)
+|   |-- vsto-testing/                # VSTO testing patterns (NEW)
+|   |-- decorator-chain-patterns/    # Decorator chain composition patterns (NEW)
+|   |-- office-document-patterns/    # Office document processing patterns (NEW)
+|   |-- domain-events-patterns/      # Domain events patterns (NEW)
 |
 |-- commands/         # Slash commands for quick execution
 |   |-- tdd.md              # /tdd - Test-driven development
@@ -293,6 +308,8 @@ everything-claude-code/
 |   |-- typescript/          # TypeScript/JavaScript specific
 |   |-- python/              # Python specific
 |   |-- golang/              # Go specific
+|   |-- csharp/              # C# specific (NEW)
+|   |-- rust/                # Rust specific (NEW)
 |
 |-- hooks/            # Trigger-based automations
 |   |-- README.md                 # Hook documentation, recipes, and customization guide
@@ -612,8 +629,16 @@ Not sure where to start? Use this quick reference:
 | Remove dead code | `/refactor-clean` | refactor-cleaner |
 | Update documentation | `/update-docs` | doc-updater |
 | Review Go code | `/go-review` | go-reviewer |
+| Fix Go build errors | `/go-build` | go-build-resolver |
 | Review Python code | `/python-review` | python-reviewer |
 | Audit database queries | *(auto-delegated)* | database-reviewer |
+| Review C# code | *(auto-delegated)* | csharp-reviewer |
+| Fix C# build errors | *(auto-delegated)* | csharp-build-resolver |
+| Enforce C# architecture | *(auto-delegated)* | csharp-architecture-enforcer |
+| Review Rust code | *(auto-delegated)* | rust-reviewer |
+| Fix Rust build errors | *(auto-delegated)* | rust-build-resolver |
+| Review VSTO add-ins | *(auto-delegated)* | vsto-reviewer |
+| Enforce VSTO architecture | *(auto-delegated)* | vsto-architecture-enforcer |
 
 ### Common Workflows
 

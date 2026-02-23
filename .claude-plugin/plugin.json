@@ -22,7 +22,8 @@
     "automation",
     "best-practices"
   ],
-  "skills": ["./skills/", "./commands/"],
+  "skills": ["./skills/"],
+  "commands": ["./commands/"],
   "agents": [
     "./agents/architect.md",
     "./agents/build-error-resolver.md",
@@ -43,6 +44,7 @@
     "./agents/tdd-guide.md",
     "./agents/vsto-reviewer.md",
     "./agents/vsto-architecture-enforcer.md",
-    "./agents/architecture-enforcer.md"
+    "./agents/architecture-enforcer.md",
+    "./agents/csharp-architecture-enforcer.md"
   ]
 }

@@ -1,8 +1,19 @@
 ---
 name: go-build-resolver
-description: Go build, vet, and compilation error resolution specialist. Fixes build errors, go vet issues, and linter warnings with minimal changes. Use when Go builds fail.
+description: |
+  Go build, vet, and compilation error resolution specialist. Fixes build errors, go vet issues, and linter warnings with minimal changes. Use when Go builds fail.
+
+  <example>
+  Context: Go build fails with compilation errors
+  User: "Fix the Go build errors"
+  </example>
+  <example>
+  Context: go vet reports issues
+  User: "Resolve these go vet warnings"
+  </example>
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 model: sonnet
+color: yellow
 ---
 
 # Go Build Error Resolver

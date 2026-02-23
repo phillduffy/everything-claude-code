@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/*.cs"
+  - "**/*.csproj"
+---
 # C# Testing
 
 > This file extends [common/testing.md](../common/testing.md) with C# specific content.

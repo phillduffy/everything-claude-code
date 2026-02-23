@@ -1,3 +1,12 @@
+---
+description: Manage PM2 process manager
+allowed-tools:
+  - Bash
+  - Read
+  - Grep
+  - Glob
+---
+
 # PM2 Init
 
 Auto-analyze project and generate PM2 service commands.

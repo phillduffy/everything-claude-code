@@ -1,3 +1,13 @@
+---
+description: Multi-agent backend development orchestrator
+allowed-tools:
+  - Read
+  - Bash
+  - Grep
+  - Glob
+  - Task
+---
+
 # Backend - Backend-Focused Development
 
 Backend-focused workflow (Research → Ideation → Plan → Execute → Optimize → Review), Codex-led.

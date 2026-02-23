@@ -2,6 +2,12 @@
 name: evolve
 description: Cluster related instincts into skills, commands, or agents
 command: true
+allowed-tools:
+  - Read
+  - Write
+  - Bash
+  - Grep
+  - Glob
 ---
 
 # Evolve Command

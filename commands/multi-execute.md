@@ -1,3 +1,15 @@
+---
+description: Multi-agent plan execution orchestrator
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+  - Grep
+  - Glob
+  - Task
+---
+
 # Execute - Multi-Model Collaborative Execution
 
 Multi-model collaborative execution - Get prototype from plan → Claude refactors and implements → Multi-model audit and delivery.

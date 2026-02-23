@@ -1,3 +1,12 @@
+---
+description: Create a checkpoint of current progress
+allowed-tools:
+  - Read
+  - Bash
+  - Grep
+  - Glob
+---
+
 # Checkpoint Command
 
 Create or verify a checkpoint in your workflow.

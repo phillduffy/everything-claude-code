@@ -1,8 +1,19 @@
 ---
 name: planner
-description: Expert planning specialist for complex features and refactoring. Use PROACTIVELY when users request feature implementation, architectural changes, or complex refactoring. Automatically activated for planning tasks.
+description: |
+  Expert planning specialist for complex features and refactoring. Use PROACTIVELY when users request feature implementation, architectural changes, or complex refactoring. Automatically activated for planning tasks.
+
+  <example>
+  Context: User requests a complex feature implementation
+  User: "Plan the implementation for user authentication"
+  </example>
+  <example>
+  Context: Large refactoring task needs strategy
+  User: "Create a plan for migrating to the new API"
+  </example>
 tools: ["Read", "Grep", "Glob"]
 model: opus
+color: blue
 ---
 
 You are an expert planning specialist focused on creating comprehensive, actionable implementation plans.

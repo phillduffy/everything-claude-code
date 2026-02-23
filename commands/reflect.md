@@ -1,3 +1,12 @@
+---
+description: Reflect on session progress and approach
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+---
+
 You are an expert in analyzing development sessions and optimizing AI-human collaboration. Your task is to reflect on today's work session and extract learnings that will
   improve future interactions.
 

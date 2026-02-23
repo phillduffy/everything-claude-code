@@ -1,5 +1,12 @@
 ---
 description: Enforce TDD workflow for C#. Write xUnit v3 tests first, then implement using Result/Maybe patterns. Verify 80%+ coverage.
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+  - Grep
+  - Glob
 ---
 
 # C# TDD Command

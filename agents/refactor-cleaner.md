@@ -1,8 +1,19 @@
 ---
 name: refactor-cleaner
-description: Dead code cleanup and consolidation specialist. Use PROACTIVELY for removing unused code, duplicates, and refactoring. Detects project language and runs appropriate analysis tools. For C# projects, also detects Dispensable code smells (Dead Code, Duplicate Code, Lazy Class, Speculative Generality).
+description: |
+  Dead code cleanup and consolidation specialist. Use PROACTIVELY for removing unused code, duplicates, and refactoring. Detects project language and runs appropriate analysis tools. For C# projects, also detects Dispensable code smells (Dead Code, Duplicate Code, Lazy Class, Speculative Generality).
+
+  <example>
+  Context: Codebase has accumulated dead code
+  User: "Clean up unused code and duplicates"
+  </example>
+  <example>
+  Context: After feature completion, consolidation needed
+  User: "Remove dead code and consolidate duplicates"
+  </example>
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 model: sonnet
+color: magenta
 ---
 
 # Refactor & Dead Code Cleaner

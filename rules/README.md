@@ -17,7 +17,9 @@ rules/
 │   └── security.md
 ├── typescript/      # TypeScript/JavaScript specific
 ├── python/          # Python specific
-└── golang/          # Go specific
+├── golang/          # Go specific
+├── csharp/          # C# specific
+└── rust/            # Rust specific
 ```
 
 - **common/** contains universal principles — no language-specific code examples.
@@ -32,6 +34,8 @@ rules/
 ./install.sh typescript
 ./install.sh python
 ./install.sh golang
+./install.sh csharp
+./install.sh rust
 
 # Install multiple languages at once
 ./install.sh typescript python
@@ -53,6 +57,8 @@ cp -r rules/common ~/.claude/rules/common
 cp -r rules/typescript ~/.claude/rules/typescript
 cp -r rules/python ~/.claude/rules/python
 cp -r rules/golang ~/.claude/rules/golang
+cp -r rules/csharp ~/.claude/rules/csharp
+cp -r rules/rust ~/.claude/rules/rust
 
 # Attention ! ! ! Configure according to your actual project requirements; the configuration here is for reference only.
 ```
@@ -66,9 +72,9 @@ Language-specific rule files reference relevant skills where appropriate. Rules 
 
 ## Adding a New Language
 
-To add support for a new language (e.g., `rust/`):
+To add support for a new language (e.g., `java/`):
 
-1. Create a `rules/rust/` directory
+1. Create a `rules/java/` directory
 2. Add files that extend the common rules:
    - `coding-style.md` — formatting tools, idioms, error handling patterns
    - `testing.md` — test framework, coverage tools, test organization

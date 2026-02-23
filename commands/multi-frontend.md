@@ -1,3 +1,13 @@
+---
+description: Multi-agent frontend development orchestrator
+allowed-tools:
+  - Read
+  - Bash
+  - Grep
+  - Glob
+  - Task
+---
+
 # Frontend - Frontend-Focused Development
 
 Frontend-focused workflow (Research → Ideation → Plan → Execute → Optimize → Review), Gemini-led.

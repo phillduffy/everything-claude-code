@@ -1,5 +1,12 @@
 ---
 description: Scaffold a new VSTO command/query handler — generates Command.cs, Handler.cs, .feature, StepDefinitions.cs, plus DI and test dependency registration.
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+  - Grep
+  - Glob
 ---
 
 # VSTO Scaffold

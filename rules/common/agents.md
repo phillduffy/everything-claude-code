@@ -8,8 +8,20 @@ Located in `~/.claude/agents/`:
 |-------|---------|-------------|
 | planner | Implementation planning | Complex features, refactoring |
 | architect | System design | Architectural decisions |
+| architecture-enforcer | Dependency & layer enforcement | Verify architecture rules |
 | tdd-guide | Test-driven development | New features, bug fixes |
 | code-reviewer | Code review | After writing code |
+| csharp-reviewer | C# code review | After writing C# code |
+| csharp-build-resolver | Fix C# build errors | When dotnet build fails |
+| csharp-architecture-enforcer | C# architecture enforcement | Verify C# layer boundaries |
+| database-reviewer | Database review | Schema/query changes |
+| go-reviewer | Go code review | After writing Go code |
+| go-build-resolver | Fix Go build errors | When go build fails |
+| python-reviewer | Python code review | After writing Python code |
+| rust-reviewer | Rust code review | After writing Rust code |
+| rust-build-resolver | Fix Rust build errors | When cargo build fails |
+| vsto-reviewer | VSTO add-in review | After writing VSTO code |
+| vsto-architecture-enforcer | VSTO architecture enforcement | Verify VSTO layer boundaries |
 | security-reviewer | Security analysis | Before commits |
 | build-error-resolver | Fix build errors | When build fails |
 | e2e-runner | E2E testing | Critical user flows |

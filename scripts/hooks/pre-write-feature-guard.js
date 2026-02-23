@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * PreToolUse hook for Write tool.
  * Warns if a .feature file name doesn't match the handler naming convention.
@@ -5,7 +6,16 @@
  * Example: InsertHeaderHandler.cs → InsertHeader.feature
  */
 let data = '';
-process.stdin.on('data', chunk => data += chunk);
+const MAX_STDIN = 10 * 1024 * 1024; // 10MB
+let dataLen = 0;
+process.stdin.on('data', chunk => {
+  dataLen += chunk.length;
+  if (dataLen > MAX_STDIN) {
+    process.stdout.write(data);
+    process.exit(0);
+  }
+  data += chunk;
+});
 process.stdin.on('end', () => {
   try {
     const input = JSON.parse(data);
@@ -13,7 +23,7 @@ process.stdin.on('end', () => {
 
     // Only check .feature files
     if (!filePath.endsWith('.feature')) {
-      console.log(data);
+      process.stdout.write(data);
       return;
     }
 
@@ -54,5 +64,5 @@ process.stdin.on('end', () => {
   } catch (e) {
     // Parse error — pass through silently
   }
-  console.log(data);
+  process.stdout.write(data);
 });

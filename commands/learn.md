@@ -1,3 +1,13 @@
+---
+description: Extract and save learned patterns from session
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - Write
+---
+
 # /learn - Extract Reusable Patterns
 
 Analyze the current session and extract any patterns worth saving as skills.

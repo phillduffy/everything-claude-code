@@ -1,3 +1,15 @@
+---
+description: Multi-agent workflow orchestrator
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+  - Grep
+  - Glob
+  - Task
+---
+
 # Workflow - Multi-Model Collaborative Development
 
 Multi-model collaborative development workflow (Research → Ideation → Plan → Execute → Optimize → Review), with intelligent routing: Frontend → Gemini, Backend → Codex.

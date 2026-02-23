@@ -1,8 +1,19 @@
 ---
 name: rust-build-resolver
-description: Rust build, clippy, and compilation error resolution specialist. Fixes build errors, borrow checker issues, and lint warnings with minimal changes. Use when Rust builds fail.
+description: |
+  Rust build, clippy, and compilation error resolution specialist. Fixes build errors, borrow checker issues, and lint warnings with minimal changes. Use when Rust builds fail.
+
+  <example>
+  Context: Cargo build fails with compilation errors
+  User: "Fix the Rust build errors"
+  </example>
+  <example>
+  Context: Clippy lints need resolution
+  User: "Resolve these clippy warnings"
+  </example>
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 model: sonnet
+color: yellow
 ---
 
 # Rust Build Error Resolver

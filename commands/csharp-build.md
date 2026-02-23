@@ -1,5 +1,12 @@
 ---
 description: Fix C# build errors, Roslyn warnings, and NuGet issues incrementally. Invokes the csharp-build-resolver agent for minimal, surgical fixes.
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+  - Grep
+  - Glob
 ---
 
 # C# Build and Fix

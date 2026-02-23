@@ -1,8 +1,19 @@
 ---
 name: csharp-build-resolver
-description: C# build, Roslyn warning, and NuGet issue resolution specialist. Fixes build errors, analyzer warnings, and package conflicts with minimal changes. Use when C# builds fail.
+description: |
+  C# build, Roslyn warning, and NuGet issue resolution specialist. Fixes build errors, analyzer warnings, and package conflicts with minimal changes. Use when C# builds fail.
+
+  <example>
+  Context: dotnet build fails with compilation errors
+  User: "Fix the C# build errors"
+  </example>
+  <example>
+  Context: Roslyn analyzer warnings need resolution
+  User: "Resolve these analyzer warnings"
+  </example>
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
-model: opus
+model: sonnet
+color: yellow
 ---
 
 # C# Build Error Resolver

@@ -1,8 +1,19 @@
 ---
 name: doc-updater
-description: Documentation and codemap specialist. Use PROACTIVELY for updating codemaps and documentation. Runs /update-codemaps and /update-docs, generates docs/CODEMAPS/*, updates READMEs and guides.
+description: |
+  Documentation and codemap specialist. Use PROACTIVELY for updating codemaps and documentation. Runs /update-codemaps and /update-docs, generates docs/CODEMAPS/*, updates READMEs and guides.
+
+  <example>
+  Context: Codebase structure changed significantly
+  User: "Update the codemaps"
+  </example>
+  <example>
+  Context: New features added, docs outdated
+  User: "Update documentation to match current code"
+  </example>
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 model: haiku
+color: magenta
 ---
 
 # Documentation & Codemap Specialist

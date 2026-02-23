@@ -1,6 +1,6 @@
 ---
 name: verification-loop
-description: "A comprehensive verification system for Claude Code sessions."
+description: "Comprehensive verification system for Claude Code sessions. Use when you hear: verify, pre-PR check, quality gate, run checks, validate changes."
 ---
 
 # Verification Loop Skill

@@ -1,6 +1,9 @@
 ---
 description: Configure your preferred package manager (npm/pnpm/yarn/bun)
 disable-model-invocation: true
+allowed-tools:
+  - Bash
+  - Read
 ---
 
 # Package Manager Setup

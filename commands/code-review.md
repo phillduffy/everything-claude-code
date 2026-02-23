@@ -1,3 +1,13 @@
+---
+description: Review code for quality, security, and maintainability
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - Task
+---
+
 # Code Review
 
 Comprehensive security and quality review of uncommitted changes:

@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/*.cs"
+  - "**/*.csproj"
+---
 # C# Hooks
 
 > This file extends [common/hooks.md](../common/hooks.md) with C# specific content.

@@ -1,5 +1,10 @@
 ---
 description: Restate requirements, assess risks, and create step-by-step implementation plan. WAIT for user CONFIRM before touching any code.
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Task
 ---
 
 # Plan Command

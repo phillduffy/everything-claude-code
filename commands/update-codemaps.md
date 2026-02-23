@@ -1,3 +1,14 @@
+---
+description: Update codemap documentation
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+  - Grep
+  - Glob
+---
+
 # Update Codemaps
 
 Analyze the codebase structure and generate token-lean architecture documentation.

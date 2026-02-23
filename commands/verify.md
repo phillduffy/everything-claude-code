@@ -1,3 +1,12 @@
+---
+description: Run verification checks on codebase
+allowed-tools:
+  - Read
+  - Bash
+  - Grep
+  - Glob
+---
+
 # Verification Command
 
 Run comprehensive verification on current codebase state.

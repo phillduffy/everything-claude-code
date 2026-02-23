@@ -1,3 +1,14 @@
+---
+description: Fix build errors incrementally
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+  - Grep
+  - Glob
+---
+
 # Build and Fix
 
 Incrementally fix build and type errors with minimal, safe changes.

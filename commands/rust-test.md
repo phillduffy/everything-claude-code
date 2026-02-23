@@ -1,5 +1,12 @@
 ---
 description: Enforce TDD workflow for Rust. Write tests first with table-driven style, then implement. Verify 80%+ coverage with cargo-llvm-cov.
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+  - Grep
+  - Glob
 ---
 
 # Rust TDD Command

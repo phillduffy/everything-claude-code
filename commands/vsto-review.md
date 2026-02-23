@@ -1,5 +1,11 @@
 ---
 description: Combined VSTO review — COM safety (vsto-reviewer) + architecture enforcement (vsto-architecture-enforcer) in one pass. Use before committing VSTO add-in changes.
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - Task
 ---
 
 # VSTO Review

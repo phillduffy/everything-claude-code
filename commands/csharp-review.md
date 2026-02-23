@@ -1,5 +1,11 @@
 ---
 description: Comprehensive C# code review for functional patterns, immutability, Result/Maybe usage, security, and code smell detection. Invokes the csharp-reviewer agent.
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - Task
 ---
 
 # C# Code Review

@@ -1,5 +1,11 @@
 ---
 description: Comprehensive Rust code review for error handling, type design, async safety, performance, and security. Invokes the rust-reviewer agent.
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - Task
 ---
 
 # Rust Code Review
