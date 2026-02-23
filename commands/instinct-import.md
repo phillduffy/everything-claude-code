@@ -1,7 +1,5 @@
 ---
-name: instinct-import
 description: Import instincts from teammates, Skill Creator, or other sources
-command: true
 allowed-tools:
   - Read
   - Write

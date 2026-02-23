@@ -1,5 +1,6 @@
 ---
 description: Run verification checks on codebase
+argument-hint: "[all|tests|types|lint]"
 allowed-tools:
   - Read
   - Bash

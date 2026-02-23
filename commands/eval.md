@@ -1,5 +1,6 @@
 ---
 description: Run evaluation harness on current session
+argument-hint: "[run|create|list] [name]"
 allowed-tools:
   - Read
   - Bash

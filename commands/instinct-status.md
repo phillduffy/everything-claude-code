@@ -1,7 +1,5 @@
 ---
-name: instinct-status
 description: Show all learned instincts with their confidence levels
-command: true
 allowed-tools:
   - Read
   - Bash

@@ -1,5 +1,6 @@
 ---
 description: Create a checkpoint of current progress
+argument-hint: "[create|restore] [name]"
 allowed-tools:
   - Read
   - Bash

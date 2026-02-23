@@ -1,5 +1,4 @@
 ---
-name: research
 description: Research a technical decision. Evaluates libraries, compares approaches, or makes build-vs-buy recommendations.
 argument-hint: "[topic] - What to research"
 allowed-tools:

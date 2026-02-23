@@ -1,5 +1,6 @@
 ---
 description: Orchestrate complex multi-agent workflows
+argument-hint: "[workflow description]"
 allowed-tools:
   - Read
   - Write
