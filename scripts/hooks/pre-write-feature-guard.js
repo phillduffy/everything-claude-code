@@ -61,7 +61,7 @@ process.stdin.on('end', () => {
       console.error('[Hook]   InsertHeaderHandler.cs → InsertHeader.feature');
       // Warn only, don't block (exit 0)
     }
-  } catch (e) {
+  } catch (_e) {
     // Parse error — pass through silently
   }
   process.stdout.write(data);

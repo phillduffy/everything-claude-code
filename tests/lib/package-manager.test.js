@@ -717,7 +717,7 @@ function runTests() {
       if (original) {
         fs.writeFileSync(configPath, original, 'utf8');
       } else {
-        try { fs.unlinkSync(configPath); } catch {}
+        try { fs.unlinkSync(configPath); } catch { /* ignore */ }
       }
     }
   })) passed++; else failed++;

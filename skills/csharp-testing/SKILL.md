@@ -26,7 +26,7 @@ REFACTOR → Improve code while keeping tests green
 REPEAT  → Continue with next requirement
 ```
 
-### Step-by-Step TDD in C#
+### Step-by-Step TDD in C\#
 
 ```csharp
 // Step 1: Define the signature

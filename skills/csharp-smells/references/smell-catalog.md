@@ -2,7 +2,7 @@
 
 Complete reference for all 23 code smells from refactoring.guru, adapted for modern C#.
 
-Source: https://refactoring.guru/refactoring/smells
+Source: <https://refactoring.guru/refactoring/smells>
 
 ---
 

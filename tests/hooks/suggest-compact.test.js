@@ -66,7 +66,7 @@ function runTests() {
 
   // Cleanup helper
   function cleanupCounter() {
-    try { fs.unlinkSync(counterFile); } catch {}
+    try { fs.unlinkSync(counterFile); } catch { /* ignore */ }
   }
 
   // Basic functionality
@@ -230,8 +230,8 @@ function runTests() {
       assert.strictEqual(countA, 2, 'Session A should have count 2');
       assert.strictEqual(countB, 1, 'Session B should have count 1');
     } finally {
-      try { fs.unlinkSync(fileA); } catch {}
-      try { fs.unlinkSync(fileB); } catch {}
+      try { fs.unlinkSync(fileA); } catch { /* ignore */ }
+      try { fs.unlinkSync(fileB); } catch { /* ignore */ }
     }
   })) passed++; else failed++;
 
@@ -302,7 +302,7 @@ function runTests() {
   if (test('counter value at exact boundary 1000000 is valid', () => {
     cleanupCounter();
     fs.writeFileSync(counterFile, '999999');
-    const result = runCompact({ CLAUDE_SESSION_ID: testSession, COMPACT_THRESHOLD: '3' });
+    runCompact({ CLAUDE_SESSION_ID: testSession, COMPACT_THRESHOLD: '3' });
     // 999999 is valid (> 0, <= 1000000), count becomes 1000000
     const count = parseInt(fs.readFileSync(counterFile, 'utf8').trim(), 10);
     assert.strictEqual(count, 1000000, 'Counter at 1000000 boundary should be valid');
@@ -312,7 +312,7 @@ function runTests() {
   if (test('counter value at 1000001 is clamped (reset to 1)', () => {
     cleanupCounter();
     fs.writeFileSync(counterFile, '1000001');
-    const result = runCompact({ CLAUDE_SESSION_ID: testSession });
+    runCompact({ CLAUDE_SESSION_ID: testSession });
     const count = parseInt(fs.readFileSync(counterFile, 'utf8').trim(), 10);
     assert.strictEqual(count, 1, 'Counter > 1000000 should be reset to 1');
     cleanupCounter();
@@ -323,7 +323,7 @@ function runTests() {
 
   if (test('uses "default" session ID when CLAUDE_SESSION_ID is empty', () => {
     const defaultCounterFile = getCounterFilePath('default');
-    try { fs.unlinkSync(defaultCounterFile); } catch {}
+    try { fs.unlinkSync(defaultCounterFile); } catch { /* ignore */ }
     try {
       // Pass empty CLAUDE_SESSION_ID — falsy, so script uses 'default'
       const env = { ...process.env, CLAUDE_SESSION_ID: '' };
@@ -338,7 +338,7 @@ function runTests() {
       const count = parseInt(fs.readFileSync(defaultCounterFile, 'utf8').trim(), 10);
       assert.strictEqual(count, 1, 'Counter should be 1 for first run with default session');
     } finally {
-      try { fs.unlinkSync(defaultCounterFile); } catch {}
+      try { fs.unlinkSync(defaultCounterFile); } catch { /* ignore */ }
     }
   })) passed++; else failed++;
 

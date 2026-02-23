@@ -42,35 +42,35 @@ Every principle card follows this template:
 | `throw new` for validation | Return `Result<T, Error>` | [Result over Exceptions](#24-result-over-exceptions) |
 | `: BaseService` | Composition via interfaces | [Composition via Interfaces](#32-composition-via-interfaces) |
 | `protected` methods | Extract to injectable interface | [Composition via Interfaces](#32-composition-via-interfaces) |
-| `string styleName` parameter | Create `StyleName` value object | [No Primitive Obsession](#14-no-primitive-obsession) |
-| `Guid documentId` | Create strongly-typed `DocumentId` | [No Primitive Obsession](#14-no-primitive-obsession) |
+| `string styleName` parameter | Create `StyleName` value object | [No Primitive Obsession](#25-no-primitive-obsession) |
+| `Guid documentId` | Create strongly-typed `DocumentId` | [No Primitive Obsession](#25-no-primitive-obsession) |
 | `ServiceLocator.Get<T>()` | Constructor injection | [Explicit Dependencies](#43-explicit-dependencies) |
 | `IConfiguration["key"]` | `IOptions<TSettings>` | [Options Pattern](#55-options-pattern) |
-| `string?` or nullable everywhere | `Maybe<T>` for optional domain values | [Maybe over Null](#15-maybe-over-null) |
-| Copy-pasted logic | Extract to single source | [DRY](#61-dry) |
+| `string?` or nullable everywhere | `Maybe<T>` for optional domain values | [Maybe over Null](#26-maybe-over-null) |
+| Copy-pasted logic | Extract to single source | [DRY](#61-dry-dont-repeat-yourself) |
 | `// TODO: fix later` | Fix now or create tracked issue | [Broken Windows](#62-broken-windows) |
 | God-class / >200 LOC | Extract per SRP | [Single Responsibility](#31-single-responsibility-principle) |
 | Class named "Manager/Helper/Util" | Apply SRP | [Single Responsibility](#31-single-responsibility-principle) |
-| A method that returns data AND changes state | Split into query + command | [Command-Query Separation](#21-command-query-separation) |
+| A method that returns data AND changes state | Split into query + command | [Command-Query Separation](#71-command-query-separation-cqs) |
 | Reading state then deciding externally | Move logic inside the object | [Tell Don't Ask](#33-tell-dont-ask) |
 | `order.Customer.Address.City` | Only talk to direct collaborators | [Law of Demeter](#34-law-of-demeter) |
 | Null check at layer 3 of 5 | Fail at the boundary, trust the type after | [Fail Fast](#22-fail-fast) |
-| `CalculateTotal()` that also logs | Separate concerns; name honestly | [Principle of Least Astonishment](#65-principle-of-least-astonishment) |
+| `CalculateTotal()` that also logs | Separate concerns; name honestly | [Principle of Least Astonishment](#65-principle-of-least-astonishment-pola) |
 | An interface with methods nobody implements | Narrow the interface | [Interface Segregation](#35-interface-segregation) |
 | `Penguin.Fly()` → `throw NotSupportedException` | Hierarchy is wrong | [Liskov Substitution](#36-liskov-substitution) |
 | Infrastructure project defines the interface | Domain owns the interface | [Dependency Inversion](#44-dependency-inversion) |
 | Stripe's `PaymentIntent` in your domain | Anti-Corruption Layer | [Anti-Corruption Layer](#46-anti-corruption-layer) |
-| Same 3 fields appear together everywhere | Extract a value object | [No Primitive Obsession](#14-no-primitive-obsession) |
+| Same 3 fields appear together everywhere | Extract a value object | [No Primitive Obsession](#25-no-primitive-obsession) |
 | Methods with 4+ parameters | Introduce a command/parameter object | [Single Responsibility](#31-single-responsibility-principle) |
-| `Process(document, true, false)` | Replace booleans with enums or separate methods | [Principle of Least Astonishment](#65-principle-of-least-astonishment) |
+| `Process(document, true, false)` | Replace booleans with enums or separate methods | [Principle of Least Astonishment](#65-principle-of-least-astonishment-pola) |
 | `DateTime.Now` used directly | Inject `IDateTimeProvider` | [Explicit Dependencies](#43-explicit-dependencies) |
 | Entities with only getters/setters | Move behaviour into entities | [Tell Don't Ask](#33-tell-dont-ask) |
-| Interface with exactly 1 implementation "just in case" | YAGNI — add when you need it | [YAGNI](#63-yagni) |
+| Interface with exactly 1 implementation "just in case" | YAGNI — add when you need it | [YAGNI](#63-yagni-you-arent-gonna-need-it) |
 | Deep `if` nesting (arrow code) | Guard clauses, early return, or Result chains | [Fail Fast](#22-fail-fast) |
-| Comments explaining *what* code does | Delete it. Only comment *why*. | [Principle of Least Astonishment](#65-principle-of-least-astonishment) |
+| Comments explaining *what* code does | Delete it. Only comment *why*. | [Principle of Least Astonishment](#65-principle-of-least-astonishment-pola) |
 | Two nearly identical classes extracted to a shared base | Is it *actually* the same concept, or coincidence? | [Rule of Three](#64-rule-of-three) |
 | Loading multiple root entities in one transaction | Your aggregate boundaries are wrong | [Aggregates](#45-aggregates-and-domain-events) |
-| `.Result` or `.Wait()` on an async call | Async all the way — this deadlocks | [Async Patterns](#async-patterns) |
+| `.Result` or `.Wait()` on an async call | Async all the way — this deadlocks | [Async Patterns](#appendix-c-analyzer-enforcement) |
 
 ### Decision Flowcharts
 
